@@ -7,10 +7,9 @@ authors = [
     { name = "Aryan Pratap Singh", email = "aryansingh87615@gmail.com" }
 ]
 requires-python = ">=3.13"
-dependencies = []
-
-[project.scripts]
-student-dashboard = "student_dashboard:main"
+dependencies = [
+    "catboost",
+]
 
 [build-system]
 requires = ["uv_build>=0.12.9,<0.13.0"]
@@ -24,4 +23,9 @@ dev = [
     "seaborn",
     "matplotlib",
     "scikit-learn",
+    "catboost",
+    "xgboost",
 ]
+
+[tool.uv]
+package = false
