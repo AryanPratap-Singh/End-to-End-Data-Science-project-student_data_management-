@@ -27,5 +27,3 @@ dev = [
     "xgboost",
 ]
 
-[tool.uv]
-package = false
