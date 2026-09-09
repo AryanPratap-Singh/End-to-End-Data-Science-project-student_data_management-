@@ -2,6 +2,8 @@ import sys
 import os
 from student_dashboard.exception import custom_error
 from student_dashboard.logger import logging
+from student_dashboard.component.data_transformation import DataIngestion
+from student_dashboard.component.data_transformation import data_transformation
 
 import pandas as pd
 from sklearn.model_selection import train_test_split
@@ -44,4 +46,7 @@ class DataIngestion:
         
 if __name__=="__main__":
     obj=DataIngestion()
-    obj.initiate_data_ingestion()
+    train_data,test_data=obj.initiate_data_ingestion()
+    
+    data_transformation= data_transformation()
+    data_transformation.initiate_data_transformation(train_data,test_data)
