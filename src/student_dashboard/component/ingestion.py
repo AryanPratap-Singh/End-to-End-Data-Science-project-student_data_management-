@@ -4,6 +4,7 @@ from student_dashboard.exception import custom_error
 from student_dashboard.logger import logging
 from student_dashboard.component.data_transformation import data_transformation
 from student_dashboard.component.data_transformation import data_transformation_config
+from student_dashboard.component.model_trainer import ModelTrainer, ModelTrainerConfig
 from student_dashboard.utils import save_object
 import pandas as pd
 from sklearn.model_selection import train_test_split
@@ -49,4 +50,7 @@ if __name__=="__main__":
     train_data,test_data=obj.initiate_data_ingestion()
     
     datatransformation= data_transformation()
-    datatransformation.initiate_data_transformation(train_data,test_data)
+    train_arr,test_arr,_=datatransformation.initiate_data_transformation(train_data,test_data)
+    
+    ModelTrainer= ModelTrainer()
+    print(ModelTrainer.initiate_model_trainer(train_arr,test_arr))
