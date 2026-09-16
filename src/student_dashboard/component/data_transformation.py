@@ -42,7 +42,7 @@ class data_transformation:
             cat_pipeline = Pipeline(
                 steps=[
                     ('imputer', SimpleImputer(strategy='most_frequent')),
-                    ('one_hot_encoder', OneHotEncoder()),
+                    ('one_hot_encoder', OneHotEncoder(handle_unknown='ignore', sparse_output=False)),
                     ('scaler', StandardScaler(with_mean=False))
                 ]
             )
@@ -67,7 +67,7 @@ class data_transformation:
         
     def initiate_data_transformation(self, train_path, test_path):
         try:
-            trian_df = pd.read_csv(train_path)
+            train_df = pd.read_csv(train_path)
             test_df = pd.read_csv(test_path)
             
             logging.info("Read train and test data completed")
@@ -77,8 +77,8 @@ class data_transformation:
             target_column_name = 'math_score'
             numerical_columns = ['writing_score', 'reading_score']
             
-            input_feature_train_df = trian_df.drop(columns=[target_column_name])
-            target_feature_train_df = trian_df[target_column_name]
+            input_feature_train_df = train_df.drop(columns=[target_column_name])
+            target_feature_train_df = train_df[target_column_name]
             
             input_feature_test_df = test_df.drop(columns=[target_column_name])
             target_feature_test_df = test_df[target_column_name]

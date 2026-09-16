@@ -51,7 +51,7 @@ class ModelTrainer:
                 "Decision Tree": {
                     "criterion": ["squared_error", "friedman_mse", "absolute_error", "poisson"],
                 },
-                "reandom Forest": {
+                "random Forest": {
                     "n_estimators": [8, 16, 32, 64, 128, 256],
                 },
                 "Gradient Boosting": {
@@ -69,7 +69,7 @@ class ModelTrainer:
                     "learning_rate": [.1, .01, .05, .001],
                     "iterations": [30, 50, 100]
                     },
-                "adaBoost": {
+                "AdaBoost": {
                     "learning_rate": [.1, .01, 0.5, .001],
                     "n_estimators": [8, 16, 32, 64, 128, 256]
                 }
@@ -94,11 +94,12 @@ class ModelTrainer:
                 obj=best_model
             )
             
-            pridictions = best_model.predict(X_test)
+            predictions = best_model.predict(X_test)
             
-            x2_square = r2_score(y_test, pridictions)
-            return x2_square
+            r2_square = r2_score(y_test, predictions)
+            return r2_square
                     
         except Exception as e:
             raise custom_error(e, sys)
+        
         
