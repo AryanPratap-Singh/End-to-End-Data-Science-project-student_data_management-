@@ -1,14 +1,19 @@
-import sys
 import os
-from student_dashboard.exception import custom_error
-from student_dashboard.logger import logging
-from student_dashboard.component.data_transformation import data_transformation
-from student_dashboard.component.data_transformation import data_transformation_config
-from student_dashboard.component.model_trainer import ModelTrainer, ModelTrainerConfig
-from student_dashboard.utils import save_object
+import sys
+from dataclasses import dataclass
+from pathlib import Path
+
+SRC_PATH = Path(__file__).resolve().parents[2]
+if str(SRC_PATH) not in sys.path:
+    sys.path.insert(0, str(SRC_PATH))
+
 import pandas as pd
 from sklearn.model_selection import train_test_split
-from dataclasses import dataclass
+
+from student_dashboard.component.data_transformation import data_transformation
+from student_dashboard.component.model_trainer import ModelTrainer
+from student_dashboard.exception import custom_error
+from student_dashboard.logger import logging
 
 @dataclass
 class DataIngestionConfig:
