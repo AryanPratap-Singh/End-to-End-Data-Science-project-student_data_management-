@@ -13,6 +13,7 @@ dependencies = [
     "scikit-learn",
     "xgboost",
     "flask",
+    "gunicorn",
 ]
 
 [build-system]
@@ -25,6 +26,5 @@ dev = [
     "seaborn",
     "matplotlib",
     "catboost",
-    "gunicorn",
 ]
 
