@@ -112,13 +112,13 @@ source .venv/bin/activate
 .venv\Scripts\Activate.ps1
 
 python -m pip install --upgrade pip
-pip install pandas numpy scikit-learn catboost xgboost flask
+pip install -r requirements.txt
 ```
 
-For notebook work, also install the development dependencies:
+OR
 
 ```bash
-pip install ipykernel seaborn matplotlib
+pip install .
 ```
 
 ### 3. Generate the training artifacts
