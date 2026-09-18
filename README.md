@@ -187,14 +187,6 @@ jupyter notebook
 - The output is an estimated mathematics score, not a diagnosis, official grade, or guarantee of future performance.
 - Pickle files should only be loaded from trusted sources.
 
-## Future improvements
-
-- Add automated tests for ingestion, transformation, and prediction.
-- Add input validation and user-friendly error messages for malformed requests.
-- Track model metrics and feature importance in the UI.
-- Add a reproducible deployment configuration, such as Docker or a cloud deployment workflow.
-- Add model versioning and data/model monitoring.
-
 ## Author
 
 **Aryan Pratap Singh**
